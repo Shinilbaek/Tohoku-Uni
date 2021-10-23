@@ -1,0 +1,163 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{indentfirst}
+
+\title{Spacial Economic Lecture2 Note}
+\author{Shenyi}
+\date{October 17, 2021}
+\begin{document}
+\maketitle
+\begin{abstract}
+
+This note is about the second lecture of course Spacial Economics by Professor \href{http://www.se.is.tohoku.ac.jp/~zeng/eng.html}{Dao-Zhi Zeng}. All rights reserved to Professor Zeng and \href{https://www.is.tohoku.ac.jp/en/}{GSIS}, \href{http://www.tohoku.ac.jp/en/}{Tohoku Unviersity}
+
+This lecture introduces the Dixit-Stiglitz Model of monopolistic competition, in which firms have freedom to choose products from many potentially differentiated product varieties. The cost structure is the same regardless of which commodity is selected, which means the fixed cost and the marginal cost are constant. On the other hand, the consumer preferences for products are diverse and symmetrical. Based on these two assumptions, firms specialize in one product which is different from other firms. In this lecture, the author gives the model under the CES utility function and there is no subsidy to firms.
+
+\end{abstract}
+
+\section{Utility Function and Competition}
+We assume that products can be divided into agricultural products and industrial products. All the agricultural products are homogeneous and industrial products are made up of many differentiated products. Consumer's preference can be described as following functions.
+\begin{equation}
+    U = M^{\mu}A^{1-\mu},0<{\mu}<1 
+\end{equation}
+\begin{equation}
+    M=[\int_0^n q(i)^{\rho}di]^{\frac{1}{\rho}} 
+\end{equation}
+
+Here, $A$ is the consumption of agricultural products. $q(i)$ is the consumption of industrial product $i$. $M$ is the sub-utility defined by all the industrial products. In other words, upper utility function (1) is Cobb-Douglas function and lower sub-utility function (2) is the CES(constant elasticity of substitution) function. Besides, if we assume $\sigma \equiv 1/(1- \rho)$, then $\sigma$ is the elasticity of substitution of any two industrial products. Here, $\sigma$ is constant under the assumption.
+
+\subsection{CES function}
+Here we give the mathematical explanation of constant elasticity of substitution function. If we rewrite (2) into discrete form, then we have
+$$M = [\sum_{i=1}^n q(i)^{\rho}]^{\frac{1}{\rho}}$$
+
+Let us consider when there are two industrial products what will happen to the utility function. If there is a constant number $\alpha \in (0,1), \rho <1$, consumer's utility function of these two products is
+$$u(x) = [\alpha x_1^{\rho} + (1-\alpha) x_2^{\rho}]^{\frac{1}{\rho}}$$
+
+Combined with the first order condition of minimizing $p_1x_1 + p_2x_2$, we have 
+$$\frac{x_1}{x_2} = (\frac{1-\alpha}{\alpha} \frac{p_1}{p_2})^{\frac{1}{\rho -1}}$$
+$$\ln{\frac{x_1}{x_2}} = \frac{1}{\rho -1}(\ln{\frac{1-\alpha}{\alpha}} + \ln{\frac{p_1}{p_2}})$$
+Thus, the elasticity of substitution is 
+$$- \frac{\frac{p_1}{p_2}}{\frac{\partial(\frac{x_1}{x_2})}{\partial({\frac{p_1}{p_2}})}} = \frac{1}{1-\rho} = \sigma$$
+
+When $\rho \rightarrow 1, \sigma \rightarrow \infty$, the differentiated product tends to be substituted good, while when $\rho \rightarrow - \infty, \sigma \rightarrow 0$, the differentiated product tends to be complementary good. 
+
+As special examples, CES function contains common following functions in economics.
+
+When $\rho = 1$, the CES function turns into linear function $u(x) = \alpha x_1 + \alpha x_2$
+
+When $\rho \rightarrow 0$, because
+\begin{equation}
+    \notag
+    \begin{aligned}
+     \lim_{\rho \rightarrow 0} \ln{u(x)} &= \lim_{\rho \rightarrow 0} \frac{ln[\alpha x_1^{\rho}+ (1-\alpha ) x^{\rho}_2}{\rho} \\ &= \lim_{\rho \rightarrow 0} \frac{\alpha x_1^{\rho}lnx_1+ (1-\alpha)x^{\rho}_2 lnx_2}{\alpha x_1^{\rho}+ (1-\alpha) x^{\rho}_2} \\
+     &= \frac{\alpha lnx_1 + (1-\alpha) lnx_2 }{\alpha +1 - \alpha} = ln x_1^{\alpha} x_2^{1-\alpha}
+    \end{aligned}
+\end{equation}
+    
+Thus, we have 
+\begin{equation}
+    \notag
+    \lim_{\rho \rightarrow 0}u(x) = x_1^{\alpha}x_2^{1 - \alpha}
+\end{equation}
+
+It is called Cobb-Douglas Function.
+
+\subsection{Two-stage approach}
+
+Here, Income $y$, agricultural product price $p^a$, and all the industrial products' price $p(i)$ are given. Consumer's budget constrain is 
+
+$$p_a A + \int_0^n p(i)q(i)di = y$$
+
+In order to maximize the utility function (1), we use two-stage approach.
+
+In the first stage, we assume the sub-utility $M$ is given and solve the minimum cost problem.
+
+\begin{equation}
+    \begin{aligned}
+     min \int_0^n p(i)q(i)di \\
+    s. t.  \quad [\int_0^n q(i)^{\rho} di]^\frac{1}{\rho} = M
+    \end{aligned}
+\end{equation}
+
+The FOC of this problem is that the ratio of elasticity of substitution of any two industrial products $i,j$ equals to the ratio of the price, which is
+
+$$\frac{q(i)^{\rho -1}}{q(j)^{\rho- 1}} = \frac{p(i)}{p(j)}$$
+
+Recall the Lagrangian Function
+
+$$L=\int_0^n p(i)q(i)di + \lambda(M^{\rho} - \int_0^n q(i)^{\rho} di)$$
+
+FOC of it is 
+
+$$\frac{\partial L}{\partial q(i) } = 0 \intertext{,for} \quad  i= 1,\ldots , n $$
+
+Then we have 
+
+$$q(i) = q(j) [\frac{p(j)}{p(i)}]^{\frac{1}{1-\rho }}$$
+
+Take this line into the constrain, we have 
+\begin{equation}
+    q(j)= \frac{p(j)^{\frac{1}{1-\rho}}}{[\int_0^n p(i)^{\frac{\rho}{\rho -1}}di]^{\frac{1}{\rho}}}
+\end{equation}
+
+Take (4) into the target function, we have the minimum cost of consumer
+
+\begin{equation}
+    \notag
+    \int_0^n p(j)q(j)dj = [\int_0^n p(i)^{\frac{\rho}{\rho -1}}di]^{\frac{\rho}{1-\rho}}M
+\end{equation}
+
+Rewrite the right-side part of this equation, 
+
+\begin{equation}
+    P \equiv [\int_0^n p(i)^{\frac{\rho}{\rho -1}}di]^{\frac{\rho}{1-\rho}} = 
+    [\int_0^n p(i)^{1-\sigma}di]^{\frac{1}{1-\sigma}}
+\end{equation}
+
+Here $P$ stands for the minimum cost to get one unit sub-utility. Thus, we can regard $P$ as the \textbf{price index} of industrial products. Last, take (5) back into (4), we can rewrite the compensation demand function into 
+\begin{equation}
+    q(j) = [\frac{p(j)}{P}]^{\frac{1}{\rho -1}}M
+\end{equation}
+
+In the second stage, we assume that the income $y$ is given and maximize the consumer's utility.
+
+\begin{equation}
+    \notag
+    \begin{aligned}
+     \max U = M^{\mu} A ^{1-\mu}\\
+    s. t. \quad PM+p^aA = y
+    \end{aligned}
+\end{equation}
+
+FOC:
+
+\begin{equation}
+    \notag
+    M=\mu \frac{y}{P} \qquad A = (1-\mu ) \frac{y}{p^a}
+\end{equation}
+
+Bring it back to (6), we can get 
+\begin{equation}
+    q(j)= \frac{p(j)^{-\sigma}}{P^{1-\sigma}}\mu y
+\end{equation}
+
+From (1), we can get the indirect utility function 
+
+\begin{equation}
+    V= \mu^{\mu} (1- \mu)^{1-\mu} P^{-\mu} (p^a)^{-(1-\mu)}
+\end{equation}
+
+
+\end{document}
