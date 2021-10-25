@@ -2,6 +2,7 @@
 My Study Notes in Tohoku University
 
 [Spacial Economics](Spacial%20Economics/)
+
 [python](python/)
 ---
 ## Info
