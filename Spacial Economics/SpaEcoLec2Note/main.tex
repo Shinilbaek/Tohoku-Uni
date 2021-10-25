@@ -1,14 +1,8 @@
 \documentclass{article}
 
-% Language setting
-% Replace `english' with e.g. `spanish' to change the document language
+
 \usepackage[english]{babel}
-
-% Set page size and margins
-% Replace `letterpaper' with`a4paper' for UK/EU standard size
 \usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
-
-% Useful packages
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
@@ -76,9 +70,9 @@ It is called Cobb-Douglas Function.
 
 \subsection{Two-stage approach}
 
-Here, Income $y$, agricultural product price $p^a$, and all the industrial products' price $p(i)$ are given. Consumer's budget constrain is 
+Here, Income $y$, agricultural product price $p^a$, and all the industrial products' price $p(i)$ are given. Consumer's budget constraint is 
 
-$$p_a A + \int_0^n p(i)q(i)di = y$$
+$$p^a A + \int_0^n p(i)q(i)di = y$$
 
 In order to maximize the utility function (1), we use two-stage approach.
 
@@ -101,13 +95,13 @@ $$L=\int_0^n p(i)q(i)di + \lambda(M^{\rho} - \int_0^n q(i)^{\rho} di)$$
 
 FOC of it is 
 
-$$\frac{\partial L}{\partial q(i) } = 0 \intertext{,for} \quad  i= 1,\ldots , n $$
+$$\frac{\partial L}{\partial q(i) } = 0 \text{,for} \quad  i= 1,\ldots, n $$
 
 Then we have 
 
 $$q(i) = q(j) [\frac{p(j)}{p(i)}]^{\frac{1}{1-\rho }}$$
 
-Take this line into the constrain, we have 
+Take this line into the constraint, we have 
 \begin{equation}
     q(j)= \frac{p(j)^{\frac{1}{1-\rho}}}{[\int_0^n p(i)^{\frac{\rho}{\rho -1}}di]^{\frac{1}{\rho}}}
 \end{equation}
@@ -156,8 +150,92 @@ Bring it back to (6), we can get
 From (1), we can get the indirect utility function 
 
 \begin{equation}
-    V= \mu^{\mu} (1- \mu)^{1-\mu} P^{-\mu} (p^a)^{-(1-\mu)}
+    V= \mu^{\mu} (1- \mu)^{1-\mu} y P^{-\mu} (p^a)^{-(1-\mu)}
 \end{equation}
 
+To show the Competition Effect, which means the more competitive the industry is, the smaller the demand for each product will be, let all the differentiated products' price be $p$, with (5) the Price Index can be rewrote into:
+$$P = (np^{1-\sigma})^{\frac{1}{1-\sigma}} =  n^{\frac{1}{1-\sigma}}p$$
 
+Thus, we know the decrease of price $p$ and the increase of the mass $n$ will cause the decrease of the Price Index.
+
+\section{Introduce Transport Costs}
+
+\subsection{Iceberg Transport Cost Model}
+
+Recording to the Samuelson(1952)'s Model, we use Iceberg model to calculate the transport cost. Here we assume that if 1 unit of product is transported from region 1 to region 2, only $1/\tau$ units actually arrive, which means $1- 1/\tau$ unit of products are disappeared during the transportation. In this condition, $\tau > 1$. 
+
+\subsection{Application}
+
+Based on Iceberg model, we have 
+\begin{equation}
+    \notag
+    \begin{aligned} 
+    \text{supply} &= \tau \times \text{foreign demand}+ \text{domestic demand} \\
+    \phi &\equiv \tau^{1-\sigma}\\
+    p_i &\text{ : mill price in }i\\
+    p_{ij} &= p_i \tau \text{if  } j \neq i \text{  from  } i \text{  to  } j \\
+    \end{aligned}
+\end{equation}
+
+Two Price Indices:
+\begin{equation}
+    \begin{aligned}
+    P_1 &= [n_1 p_1^{1-\sigma}+ n_2(p_2\tau)^{1-\sigma}]^{\frac{1}{1-\sigma}}\\
+    P_2 &= [n_1 (p_1\tau)^{1-\sigma}+ n_2p_2^{1-\sigma}]^{\frac{1}{1-\sigma}} 
+    \end{aligned}
+\end{equation}
+
+Besides, with (7), we have country $j$'s demand on country $i$ products
+$$q_ij = \mu Y_j(p_\tau)^{- \sigma} P_j^{\sigma -1}$$
+With Iceberg transport cost, we have the total demand of country $i$ 
+\begin{equation}
+    q_i = q_{ii} + \tau q_{ij} = \mu p_i^ {-\sigma}(\frac{Y_i}{P_i^{1-\sigma}}+ \frac{\phi Y_j}{P_j^{1-\sigma}})
+\end{equation}
+
+Here $\phi$ is called trade freeness or trade openness and $\phi \in (0,1) $ as definition.
+
+\section{Firm production and allocation}
+
+We assume that the industrial production has the technology of increasing returns to scale. For simplicity, we also assume that all the firms have the same production technology. Its fixed input $C^f$ and its marginal input $C^m$ are constant. If the mill price is $p_i$, the profit of a firm is
+\begin{equation}
+    \Pi_i = p_i q_i - (C^f + C^m q_i)
+\end{equation}
+where
+$$q= \frac{p^{-sigma}}{P^{1-\sigma}}\mu y$$
+
+Firm chooses optimal price $p$ to maximize the profit. FOC of it
+$$\frac{d\pi}{dp} = q+(p -C^m)\frac{dq}{dp}$$
+Consider the monopolistic competition, a single price $p$ does not impact on the price index. So the $P$ is independent on $p_i$.
+$$\frac{dq}{dp} = -\sigma \mu p_i^{-\sigma -1 } \frac{Y_i}{P_i^{1-\sigma}} - \sigma \mu p_i^{-\sigma -1 } \frac{\phi Y_j}{P_j^{1-\sigma}} = -\sigma \frac{q_i}{p_i}$$
+
+So we have the optimal price
+\begin{equation}
+    p_i = \frac{\sigma}{\sigma -1 } C^m = \frac{1}{\rho} C^m
+\end{equation}
+
+Define the markup of firm $i$ as $(p_i-C^m)/p_i$. With the elasticity of substitution of demand, we can know the markup is constant, which is $\frac{1}{\sigma}$.
+
+Bring it back to the profit function, we have 
+
+\begin{equation}
+    \Pi_i = \frac{C^m}{\sigma -1} q_i - C^f
+\end{equation}
+
+Due to the free entry condition, so the profit equals to zero. Then we can get the free entry condition
+
+\begin{equation}
+    C^f = \frac{C^m q_i}{ \sigma - 1 } = \frac{1}{\sigma} p_i q_i
+\end{equation}
+
+Now consider that there is only one production factor which is labor. Denote wage as $\omega$, fixed labor input as $F$, marginal labor input as $m$. Then we have $C^f=F \omega , C^m = m\omega$. Take forms into (14),we can get the output
+\begin{equation}
+    q_i = \frac{F(\sigma -1)}{m}
+\end{equation}
+
+Also, entering firms have labor input $F+mq = F \sigma$. Thus, if the total labor input on industrial production is $L$, then the number of firms which enter the market gives by
+$$n=\frac{L}{F\sigma}$$
+
+\section{Homework}
+\textbf{Q:} Assume that households and firms are homogeneous. Help a government to find the (nonconstrained) optimal number of firms $n_0$ and production of a firm $q_0$ to maximize the following welfare function
+$$\max_{n,q} M^{\mu}A^{1-\mu} = (qn^{\frac{1}{\rho}})^{\mu} [L - n ( F+mq)]^{1-\mu}$$
 \end{document}
