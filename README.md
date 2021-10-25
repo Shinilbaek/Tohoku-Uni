@@ -1,6 +1,8 @@
 # Tohoku-Uni
 My Study Notes in Tohoku University
 
+[Spacial Economics](Spacial%20Economics/)
+[python](python/)
 ---
 ## Info
 My name is Shinil and I share my notes and study materials from Tohoku University. 
