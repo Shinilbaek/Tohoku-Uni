@@ -1,0 +1,159 @@
+\documentclass[twocolumn]{article}
+
+
+\usepackage[english]{babel}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{indentfirst}
+
+\title{Seminar Note}
+\author{Shenyi}
+\date{October 27, 2021}
+\begin{document}
+\twocolumn[
+\begin{@twocolumnfalse}
+\maketitle
+\begin{abstract}
+In this note I will go through the mathematical model part of the paper presented by Tang in Tuesday's seminar. The title of the paper is \textit{\href{https://www.sciencedirect.com/science/article/abs/pii/S0094119012000411}{Relaxing Hukou: Increased labor mobility and China's economic geography}}. In this paper, the authors conduct their research based on a new economic geography(NEG) model. First, they estimate the important model parameters using data on 264 of China's prefecture cities. Second, they use these estimates as inputs in a simulation of the full NEG model under different labor mobility outcomes. In my note I mainly focus on the model and formula part so background information, estimation as well as simulation part are not in this note.
+
+\end{abstract}
+\end{@twocolumnfalse}
+]
+
+\section{The NEG model basis}
+
+The NEG model was introduced by Puga(1999) as the paper's benchmark model. For purposes in the paper, it easily facilitates comparing the consequences of different degrees of \textbf{labor mobility} on the resulting spatial distribution of economic activity.
+
+The difference between the model in this paper and original Puga(1999) model is that this concerns the inclusion of a non-tradable services sector in the model, i.e. called housing(Helpman, 1998, and Hanson, 2005). The inclusion of a housing sector changes the mix of agglomeration and spreading forces. By increasing the cost of living as a city grows, it introduces an additional spreading force, decreasing the likelihood of ending up in the unrealistic scenario of complete agglomeration.
+
+\subsection{The multi-region version of the Puga(1999) model including a housing sector}
+Consider a world consisting of R regions. Each of region $i=1,\ldots ,R$ is populated by $L_i$ workers, endowed with a stock of non-tradable services(e.g. Housing) $H_i$ and endowed with $K_i$ units of arable land.
+
+Each region's economy consists of two sectors: agriculture and industry. Labor is used by both sectors and is mobile between sectors within a region and it is either mobile or immobile between regions. Land on the other hand is used only by the agricultural sector and is immobile between regions. The fixed housing stock is owned by absentee landlords. 
+
+
+\subsection{Production}
+
+The agricultural good is produced under perfect competition and free entry and exit using Cobb-Douglas technology. Moreover, it is freely tradable between regions. The industrial sector produces heterogeneous varieties of a single good under monopolistic competition and free entry and exit. Industrial production technology is characterized by increasing returns to scale, i.e. production of a quantity $x(h)$ of any variety $ h $ requires fixed costs $c_i \alpha$ and variable costs $c_i \beta $ that are both assumed to be the \textbf{same} in each region, but can \textbf{differ} between regions due to differences in e.g. production efficiency, $c_i$. And the inclusion of $c_i$ rationalizes that we control for efficiency differences between prefecture cities in the estimation of the wage equation. 
+
+This production structure, together with free entry and exit and profit maximization, ensures that in equilibrium each variety is produced by a single firm in a single region. The production input is a Cobb-Douglas composite of labor and intermediates, with $0 \leq \mu \leq 1$ the Cobb-Douglas share of intermediates. Intermediates enter the production function as a composite manufacturing good that is specified as a CES-aggregate of all manufacturing varieties produced.
+
+Firms in principle sell their goods to all regions. But, shipping their goods to foreign markets incurs Iceberg Transport cost $\tau$, e.g. shipping goods from region $i$ to region $j$ will let $\tau_{ij}$ goods into one unit good\footnote{See more explanation at Spacial Economics Lecture2}. Taking these costs into account, we give the following profit function that is similar for each firm in region $i$:
+\begin{equation}
+    \pi_i = \sum^R_j \frac{p_{ij}(h) x_{ij}(h)}{\tau_{ij}} - \omega_i^{M^{1-\mu}} q_i^{\mu} c_i[\alpha + \beta \sum^R_j x_{ij}(h)]
+\end{equation}
+where $p_{ij}$ is the price of a variety produced in country $i$, $q_i$ is the \textbf{price index} of the composite manufacturing good, $\omega_i^{M}$ the manufacturing wage in region $i$.
+
+
+\subsection{Preferences}
+
+Consumers have Cobb-Douglas preferences over the agricultural good $A$, the non- tradable service, housing $H$, and a CES-composite of manufacturing varieties $M$, with $0 \leq \gamma_s \leq 1, s=M,A,H$, the Cobb-Douglas share of each (aggregate) good (with $\gamma_M + \gamma_A+\gamma_H =1$. Specifying the composite manufacturing good this way ensures demand from each region for each manufacturing variety, which, together with the fact that each variety is produced by a single firm in a single region, implies that trade takes place between regions.
+
+
+\subsection{Equilibrium}
+\subsubsection{Agriculture}
+Having specified preferences as well as the production technologies of the manufacturing and agricultural good, the equilibrium conditions of the model can be calculated. Profit maximization and free entry and exit determine the share of labor employed $L_i^A$, and the wage level, $w_i^A$, in agriculture, as well as the rent earned per unit of land $r(w_i^A)$. The former two in turn pin down the share of workers in manufacturing, $\zeta_i$. Given the assumed Cobb-Douglas production function in agriculture, with labor share $\theta$, we have
+\begin{equation}
+    \zeta_i = \frac{L_i^M}{L_i} = 1-\frac{L_I^A}{L_i} = 1- \frac{K_i}{L_i}(\frac{\theta}{w_i^A})^{\frac{1}{1-\theta}}
+\end{equation}
+where $0 \leq \theta \leq 1$ denotes the Cobb-Douglas share of labor in agriculture, and $L_I^M$ and $L_i^A$ the number of workers in manufacturing and agriculture respectively. Equation (2) shows that, in contrast to \textbf{Krugman(1991)}, where agriculture uses only land $(\theta = 0)$, or to \textbf{Venables(1996)}, where agriculture employs only labor $(\theta = 1)$, the share of a region's labor employed in manufacturing is endogenously determined in this model. It increases with a region's labor endowment and agricultural wage level and decreases with a region's land endowment and with the Cobb-Douglas share of labor in agricultural production. Consumer preferences in turn determine total demand for agricultural products region i as:
+\begin{equation}
+    x_i^A = (1- \gamma_M - \gamma_H)Y_i
+\end{equation}
+
+\subsubsection{Industry}
+In the industrial sector, profit maximization with free entry and exit gives the familiar result that all firms in region $i$ set the same price for their produced manufacturing variety as being a constant markup over marginal costs:
+\begin{equation}
+    p_i = \frac{\sigma \beta}{\sigma -1 } c_i q_i^{\mu}w_i^{M^{1-\mu}}
+\end{equation}
+where $q_i$ is the \textbf{price index} of the composite manufacturing good in region $i$ defined by:
+\begin{equation}
+    q_i = (\int_j \tau_{ij}^{1-\sigma} n_j p_j^{(1-\sigma)})^{\frac{1}{1-\sigma}}
+\end{equation}
+where $n_i$ denotes the number of firms in region $i$ and 
+\begin{equation}
+    w_i^M = [(1-\mu ) n_i p_i(\frac{(\sigma -1 )}{\sigma \beta}(\alpha +\beta x_i))](\zeta_i L_i)^{-1}
+\end{equation}
+where $w_i^M$ is the manufacturing wage level in region $i$.
+
+\subsubsection{Consumer}
+Utility maximization on behalf of the consumers in turn gives total demand for each manufacturing variety produced(from both region $i$ and region $j$) which is the same for each variety in the same region due to the way consumer preferences are specified:
+\begin{equation}
+    x_i= \int_j p_i^{-\sigma}e_jq_j^{(\sigma-1)}\tau_{ij}^{1-\sigma}
+\end{equation}
+where demand from each foreign region $j$ is multiplied by $\tau_{ij}$ because of the transportation costs.
+
+\begin{equation}
+    e_i = \gamma_MY_i + \mu n_i p_i (\frac{(\sigma-1)}{\sigma \beta}(\alpha + \beta x_i))
+\end{equation}
+is total expenditure on manufacturing varieties in region $i$, where the first term representing consumer expenditure and the second term producer expenditure on intermediates, where
+\begin{equation}
+    \begin{aligned}
+    Y_i &= \gamma_H + w_i^A(1-\zeta_i)L_i + w_i^M \zeta_i L_i + r(w_i^A)K_i +n_i \pi_i\\
+    &= (w_i^A(1-\zeta_i)L_i + w_i^M \zeta_i L_i + r(w_i^A)K_i +n_i \pi_i)/(1-\gamma_H)
+    \end{aligned}
+\end{equation}
+is the total consumer income consisting of spending on housing, workers' wage income, landowners' rents and firms' profits respectively. Due to free entry and exit these profits are driven to zero, after substituting for wages. Thereby uniquely defining a firm's equilibrium output at:
+\begin{equation}
+    x_i = \frac{\alpha(\sigma -1 )}{\beta}
+\end{equation}
+
+\subsubsection{Labor}
+Finally, to close the model, the labor markets are assumed to clear:
+\begin{equation}
+    \begin{aligned}
+    L_i &= L_i^M + L_i^A \\
+    &= \underbrace{[(1-\mu)n_i p_i (\frac{(\sigma -1)}{\sigma \beta}(\alpha+ \beta x_i)]w_i^{M^{-1}}}_{L_i^M}\\
+    &+ \underbrace{K_i(\frac{\theta}{w_i^A})^{\frac{1}{1-\theta}}}_{L_i^A}
+    \end{aligned}
+\end{equation}
+where the demand for labor in agriculture, $L_i^A$, follows from the assumption of Cobb-Douglas technology in agriculture and the term between square brackets represents the total manufacturing wage bill. Moreover, equating labor supply and labor demand in the industrial sector gives an immediate relationship betwenn the number of firms and the number of workers in industry:
+\begin{equation}
+    n_i = \frac{\zeta_i L_i}{\alpha \sigma (1-\mu)q_i^{\mu}w_i^{M-\mu}} 
+\end{equation}
+\subsubsection{Long run equilibrium}
+To solve for the long run equilibrium, \textbf{Puga (1999}) distinguishes between the case where labor is both interregionally and intersectorally mobile and the case when it is only intersectorally mobile. \textbf{Without interregional labor mobility, long run equilibrium is reached when the distribution of labor between the agricultural and the industrial sector in each region is such that wages are equal in both sectors.} This is ensured by labor being perfectly mobile between sectors driving intersectoral wage differences to zero. When instead labor is also interregional mobile, not only intersectoral wage differences are driven to zero in all regions in equilibrium. Workers now also respond to real wage (utility) differences between regions by moving to regions with the higher real wages (utility) until real wages are equalized between all regions, hereby defining the long run equilibrium.
+
+\subsubsection{Interregional labor immobility}
+
+The long run equilibrium in case of interregional labor immobility can now be shown to be a solution ${w_i,q_i}$ of the equilibrium equations that have to hold in each region. Here (when using wage-worker space) these are, using the fact that in equilibrium 
+\begin{equation}
+    \notag
+    w_i^M = w_i^A = w_i
+\end{equation}
+
+\begin{equation}
+    q_{i}=(\frac{1}{1-\mu} \sum_{j}\left(\zeta_{j} L_{j} q_{j}^{-\mu \sigma} c_{j}^{-\sigma} w_{j}^{1-\sigma(1-\mu)} \tau_{i j}^{1-\sigma}\right))^{\frac{1}{1-\sigma}}
+\end{equation}
+\begin{equation}
+    w_{i}=q_{i}^{\frac{\mu}{\mu-1}} c_{i}^{\frac{1}{\mu-1}}(\sum_{j} e_{j} q_{j}^{\sigma-1} \tau_{i j}^{1-\sigma})^{1 /(\sigma(1-\mu))}
+\end{equation}
+\begin{equation}
+    e_{i}=\frac{\gamma_{M}}{1-\gamma_{H}}(w_{i} L_{i}+K_{i} r(w_{i}))+\frac{\mu}{1-\mu} w_{i} \zeta_{i} L_{i}
+\end{equation}
+
+The final equilibrium condition concerns the housing market:
+\begin{equation}
+    H_ip_{H,i}=\gamma_HY_i
+\end{equation}
+
+With $p_{H,i}$ is the price of the non-tradable service in region $i$, $H_i$ is the fixed housing stock. In this case, that is without interregional labor mobility, equation (16) helps to determine the housing price but housing price cannot influence worker's location decisions. It is with interregional labor mobility, as below, that housing prices start to matter for the long run equilibrium.
+
+\subsubsection{Interregional labor mobility}
+
+With interregional labor mobility, workers will move between regions in response to real wage differences until the interregional real wage differences, which are possible to persist when workers are unable to move between regions, are no longer present. More formally, the long run equilibrium solution ${w_i,q_i}$ for each region $i$ has to adhere to the additional condition that real wages, $w_i$ are equal across all regions:
+\begin{equation}
+    \omega_i = q_i^{-\gamma_M}p_H^{-\gamma_H}w_i = \omega, \forall i
+\end{equation}
+
+So with interregional labor mobility we have equilibrium conditions (13)–(17). Compared with \textbf{Puga (1999)} or the core new economic geography model by \textbf{Krugman (1991)}, our model with interregional labor mobility shows two main differences. The first one is the inclusion of the housing market equation (16). The second one relates to the fact that the real wage equalization condition (17) not only contains the price index of manufactures $q_i$ but also the housing prices $p_H$. When more workers move to region $i$, $Y_i$ will increase and, given the fixed stock of housing and the fixed expenditure share on housing, this will imply an increase in housing prices. The latter will \textbf{ceteris paribus} decrease real wages in region $i$, thereby acting as a spreading force that gets stronger as more workers move to this region.
+
+\section{Summary}
+Consequently, the model gives very different predictions regarding the equilibrium spatial distribution of people and firms depending on the degree of interregional labor mobility. With labor completely immobile between regions, we will see firms moving to places offering better profit prospects, but people are, by definition, not moving around. When on the other hand, people are able to move around, the equilibrium distribution of people will change (except in the (very) unlikely case that real wages are initially already equalized), with people moving towards places offering higher real wages. Whether or not this will result in more or less agglomeration, is a priori not clear. This depends on the important model parameters such as trade costs, the relative importance of housing, and manufacturing and agriculture in people’s utility; but also on regions’ initial endowments of arable land, population, and housing stock.
+
+\section{Further for me}
+Microeconomics, Spacial Economics,previous research, proof of equations by Mathemetica, Estimate and Simulation of this model, Programming.
+
+\end{document}
