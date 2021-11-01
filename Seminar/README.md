@@ -7,3 +7,5 @@ Zeng, Kono, Ito, Fujiwara co-seminar in [GSIS](https://www.is.tohoku.ac.jp/)
 
 ---
 Last Updated: 2021.10.27
+
+[学内メール](mailto:bai.shenyi.s7@dc.tohoku.ac.jp)

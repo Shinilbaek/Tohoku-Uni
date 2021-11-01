@@ -9,3 +9,5 @@ Lecture 2: [pdf](SpaEcoLec2Note/SpaEcoLec2Note.pdf), [tex](SpaEcoLec2Note/main.t
 
 ---
 Last Updated: 21.10.25
+
+Slack及びメールでご連絡してください。
