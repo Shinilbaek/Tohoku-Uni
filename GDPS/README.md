@@ -6,6 +6,7 @@ GDPS [Homepage](https://sites.google.com/tohoku.ac.jp/gpds-course/home)
 - [Notebook](GSIS_BigDataSkillUp_LectureNotes.ipynb)  
 - [Workbook](“Big_Data_Skill_up_Training_❯_Practice_Workbook_Shin.ipynb)
 - [Assignment Notebook](Big_Data_Skill_up_Training_❯_Assignment_Workbook_Shin.ipynb)
+
 Based on Python3
 
 ### Data Science Basic
